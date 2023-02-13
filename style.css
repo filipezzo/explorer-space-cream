@@ -1,0 +1,246 @@
+:root {
+  --grey: #8E9AAF;
+  --white: #EFF1FF;
+  --wpink: #FEEAFA;
+  --wpurple: #CBC0D3;
+  --wblue: #4A4E69;
+  --fontb: 'Staatliches', cursive;
+  --fontp: 'Palanquin', sans-serif;
+  font-size: 62.5%;
+  --fsbody: 1.6rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+body {
+  font-size: var(--fsbody);
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+.page {
+  min-width: 38.5rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--grey);
+  gap: 3.2rem;
+}
+
+aside img {
+  margin-top: 3.2rem;
+}
+
+aside h1 {
+  width: 100%;
+  font-family: var(--fontb);
+  color: #FFFFFF;
+  background: var(--wpurple);
+  text-align: center;
+  padding: 0.8rem 8.6rem;
+  font-size: 4rem;
+  line-height: 3.4rem;
+}
+
+.aside-text {
+  font-family: var(--fontp);
+  font-size: 2rem;
+  line-height: 1.5rem;
+  text-align: center;
+  color: #23053A;
+  background: var(--white);
+  padding: 1.4rem 4.3rem 6.3rem 3.6rem;
+}
+
+main {
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3.2rem;
+
+}
+
+.card {
+  position: relative;
+  animation: down-to-top 700ms;
+  transition: transform 250ms;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.card:last-child {
+  margin-bottom: 3.2rem;
+}
+
+main h2 {
+  position: absolute;
+  font-family: var(--fontb);
+  color: var(--wblue);
+  font-size: 2rem;
+  line-height: 3.4rem;
+  top: 2rem;
+  right: 2rem;
+  background: #FEEAFA;
+  border-radius: 2rem;
+  padding: 0.1rem 2.3rem;
+  animation: top-to-down 500ms 500ms forwards;
+}
+
+footer,
+.none {
+  display: none;
+}
+
+/* ============ Keyframes =============== */
+@keyframes down-to-top {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes top-to-down {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ============ Breakpoint Desktop =============== */
+@media (min-width: 1000px) {
+
+  .none,
+  footer {
+    display: block;
+  }
+
+  .page {
+    display: flex;
+    flex-direction: row;
+  }
+
+  aside {
+    justify-content: flex-start;
+    align-items: center;
+    width: 40%;
+  }
+
+  aside h1 {
+    padding: 2rem 7.3rem;
+    text-align: center;
+  }
+
+  aside p {
+    font-size: 2.3rem;
+    line-height: 2.5rem;
+    text-align: center;
+    color: #fff;
+    width: 27.5rem;
+    height: 26.2rem;
+  }
+
+  .aside-text {
+    background: var(--grey);
+  }
+
+  main {
+    display: grid;
+    grid-template-areas:
+      "A B C"
+      "D B F"
+      "D E F"
+      "G G G"
+    ;
+    gap: 3.2rem;
+    padding: 6.4rem 8.1rem;
+    width: 69.8%;
+  }
+
+  main div:nth-child(1) {
+    grid-area: A;
+  }
+
+  main div:nth-child(2) {
+    grid-area: B;
+  }
+
+  main div:nth-child(3) {
+    grid-area: C;
+  }
+
+  main div:nth-child(4) {
+    grid-area: D;
+  }
+
+  main div:nth-child(5) {
+    grid-area: E;
+  }
+
+  main div:nth-child(6) {
+    grid-area: F;
+  }
+
+  footer {
+    grid-area: G;
+  }
+
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
+  footer {
+    display: flex;
+    justify-content: center;
+  }
+
+  footer a {
+    color: #4A4E69;
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 1rem;
+  }
+
+}
